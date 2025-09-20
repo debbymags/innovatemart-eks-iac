@@ -40,12 +40,11 @@ jobs:
         run: terraform -chdir=terraform/environments/dev init
 
       - name: Terraform Validate
-        run: terraform validate terraform/environments/dev
+        run: terraform -chdir=terraform/environments/dev validate
 
       - name: Terraform Plan
-        if: startsWith(github.ref, 'refs/heads/feature/')
-        run: terraform plan -out=tfplan terraform/environments/dev
+        run: terraform -chdir=terraform/environments/dev plan -out=tfplan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve terraform/environments/dev
+        run: terraform -chdir=terraform/environments/dev apply -auto-approve tfplan
