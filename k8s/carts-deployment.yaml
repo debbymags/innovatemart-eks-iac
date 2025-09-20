@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carts
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: carts
+  template:
+    metadata:
+      labels:
+        app: carts
+    spec:
+      containers:
+        - name: carts
+          image: your-carts-image:latest
+          env:
+            - name: DYNAMO_TABLE
+              valueFrom:
+                secretKeyRef:
+                  name: carts-secret
+                  key: tableName
+            - name: DYNAMO_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: carts-secret
+                  key: region
