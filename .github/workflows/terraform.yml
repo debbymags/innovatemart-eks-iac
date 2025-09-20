@@ -37,7 +37,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Terraform Init
-        run: terraform init terraform/environments/dev
+        run: terraform -chdir=terraform/environments/dev init
 
       - name: Terraform Validate
         run: terraform validate terraform/environments/dev
