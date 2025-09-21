@@ -12,6 +12,7 @@ override.tf.json
 # Local environment configs
 terraform.tfvars
 terraform.tfvars.json
+.env
 
 # IDE / Editor configs
 .vscode/
@@ -24,3 +25,5 @@ Thumbs.db
 
 # Retail sample app (not used in project)
 retail-store-sample-app/
+
+terraform.tfstate*
