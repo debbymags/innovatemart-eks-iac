@@ -41,7 +41,7 @@ innovatemart-eks/
 
 3. **Secrets Management**
    - Kubernetes secrets created for database credentials
-   - Deployed manually verified to be referenced in pod environment variables
+   - Verified that pods reference secrets in environment variables
 
 4. **Terraform CI/CD**
    - GitHub Actions workflow automates `terraform init`, `plan`, and `apply` on push to main
@@ -50,22 +50,23 @@ innovatemart-eks/
 5. **Developer Access**
    -  Created an IAM user (`innovatemart-dev`) for the development team
    - Granted read-only access to the EKS cluster resources
+   - Developers can view logs, describe pods, and check service status without making changes
 ---
 
 ## **Bonus Objectives (Partial / Attempted)**
 
-- Managed persistence:
+- **Managed persistence**
   - AWS RDS for PostgreSQL (`orders`) and MySQL (`catalog`)
   - AWS DynamoDB for `carts`
-  - Secrets not fully automated for pods; values injected manually
 
-- Networking:
-  - AWS Load Balancer Controller not fully implemented
-  - ALB + Route53 + ACM configuration documented but not deployed
-
+- **Networking (Documented / Planned)**
+  - AWS Load Balancer Controller installation and Ingress configuration documented
+  - Plan: expose `ui` service to internet via Application Load Balancer (ALB)
+  - Placeholder for domain configuration in Route 53
+  - SSL via ACM planned for HTTPS
 ---
 
-## **How to Verify / Run**
+## **Accessing Running App**
 
 ```bash
 # Check pods are running
