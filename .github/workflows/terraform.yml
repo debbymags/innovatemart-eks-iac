@@ -53,9 +53,4 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: |
-          terraform -chdir=terraform/environments/dev apply -auto-approve tfplan \
-            -var="orders_db_username=${{ secrets.ORDERS_DB_USERNAME }}" \
-            -var="orders_db_password=${{ secrets.ORDERS_DB_PASSWORD }}" \
-            -var="catalog_db_username=${{ secrets.CATALOG_DB_USERNAME }}" \
-            -var="catalog_db_password=${{ secrets.CATALOG_DB_PASSWORD }}" \
-            -var="carts_table_name=${{ secrets.CARTS_TABLE_NAME }}"
+          terraform -chdir=terraform/environments/dev apply -auto-approve tfplan
