@@ -28,3 +28,4 @@ retail-store-sample-app/
 
 terraform.tfstate*
 bfg-1.15.0.jar
+terraform.tfstate.backup
